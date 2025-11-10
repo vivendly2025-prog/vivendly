@@ -3,16 +3,16 @@ import { legalTranslations } from './legalTranslations'
 export const translations = {
   en: {
     hero: {
-      headline: "Build Your E-Commerce Empire ",
-      headlineHighlight: "In Few Minutes",
-      subheadline: "AI-powered platform that creates, optimizes, and scales your Shopify store automatically - from winning product selection to viral marketing campaigns",
-      ctaPrimary: "Generate My Shop",
+      headline: "Become The Next Big Name ",
+      headlineHighlight: "Of Tomorrow",
+      subheadline: "",
+      ctaPrimary: "Start for free",
       ctaSecondary: "Watch Demo (2min)",
       trustBar: {
         products: "2M+ Products",
-        suppliers: "7K+ Suppliers",
+        suppliers: "100K+ Suppliers",
         adSpy: "Real-time Ad Spy",
-        creative: "AI Creative Studio"
+        creative: "AI Actors"
       },
       poweredBy: "Powered by Shopify",
       shopifyPartner: "Official Shopify Partner",
@@ -52,14 +52,14 @@ export const translations = {
           description: "Monitor active advertising campaigns on Facebook, Instagram & TikTok in real-time. See what's working for competitors right now and adapt instantly."
         },
         {
-          title: "AI Creative Studio",
-          description: "Generate up to 120-second product videos with AI actors speaking about your products. Create stunning product visuals from simple prompts in seconds."
+          title: "AI Actors",
+          description: "Generate professional product videos and visuals with AI in seconds"
         }
       ]
     },
     visualDemo: {
       title: "See Vivendly in Action",
-      subtitle: "Create your store, import your product and get your AI video creatives",
+      subtitle: "Create your store, import your winner product and get your AI video creatives",
       items: [
         {
           label: "Create your store instantly",
@@ -72,7 +72,7 @@ export const translations = {
           image: "/images/winner_product.png"
         },
         {
-          label: "AI-Powered Creatives",
+          label: "IA Actor Creatives",
           description: "Generate professional product videos and visuals with AI in seconds",
           video: "/video/iavideo.mp4"
         }
@@ -146,7 +146,7 @@ export const translations = {
       title: "Real-Time Ad Spy",
       subtitle: "Monitor active advertising campaigns on Facebook, Instagram & TikTok in real-time",
       description: "See what's working for competitors right now and adapt instantly. Track millions of ads, analyze performance metrics, and discover winning strategies before everyone else.",
-      cta: "Start Spying on Ads",
+      cta: "Try Now",
       stats: [
         { value: "100K+", label: "Ads Tracked" },
         { value: "Real-Time", label: "Updates" },
@@ -155,7 +155,7 @@ export const translations = {
     },
     ugcCreator: {
       title: "Create Product Presentation Videos with AI Actors!",
-      subtitle: "Transform your products into engaging video content in 3 simple steps",
+      subtitle: "Transform your products into engaging video content",
       steps: [
         {
           number: "1",
@@ -365,16 +365,16 @@ export const translations = {
   },
   fr: {
     hero: {
-      headline: "Créez Votre Empire E-Commerce ",
-      headlineHighlight: "En Quelques Minutes",
-      subheadline: "Plateforme IA qui crée, optimise et fait grandir votre boutique Shopify automatiquement - de la sélection produits gagnants aux campagnes marketing virales",
-      ctaPrimary: "Générer Ma Boutique",
+      headline: "Devenez Le Prochain Grand Nom ",
+      headlineHighlight: "De Demain",
+      subheadline: "",
+      ctaPrimary: "Commencer gratuitement",
       ctaSecondary: "Voir la Démo (2min)",
       trustBar: {
         products: "2M+ Produits",
-        suppliers: "7K+ Fournisseurs",
+        suppliers: "100K+ Fournisseurs",
         adSpy: "Espion Pub Temps Réel",
-        creative: "Studio Créatif IA"
+        creative: "Acteurs IA"
       },
       poweredBy: "Propulsé par Shopify",
       shopifyPartner: "Partenaire Officiel Shopify",
@@ -414,14 +414,14 @@ export const translations = {
           description: "Surveillez les campagnes actives sur Facebook, Instagram & TikTok en temps réel. Voyez ce qui marche maintenant."
         },
         {
-          title: "Studio Créatif IA",
-          description: "Générez des vidéos jusqu'à 120 secondes avec acteurs IA. Créez des visuels produits époustouflants en secondes."
+          title: "Acteurs IA",
+          description: "Générez des vidéos et visuels professionnels avec l'IA en secondes"
         }
       ]
     },
     visualDemo: {
       title: "Vivendly En Action",
-      subtitle: "Créez votre boutique, importez votre produit et obtenez vos créatifs vidéo IA",
+      subtitle: "Créez votre boutique, importez votre produit gagnant et obtenez vos créatifs vidéo IA",
       items: [
         {
           label: "Créez votre boutique instantanément",
@@ -434,7 +434,7 @@ export const translations = {
           image: "/images/winner_product.png"
         },
         {
-          label: "Créatifs Propulsés par IA",
+          label: "Créatifs Acteurs IA",
           description: "Générez des vidéos et visuels professionnels avec l'IA en secondes",
           video: "/video/iavideo.mp4"
         }
@@ -508,7 +508,7 @@ export const translations = {
       title: "Espion Pub Temps Réel",
       subtitle: "Surveille les campagnes publicitaires actives sur Facebook, Instagram & TikTok en temps réel",
       description: "Vois ce qui fonctionne chez tes concurrents maintenant et adapte-toi instantanément. Traque des millions de pubs, analyse les métriques de performance et découvre les stratégies gagnantes avant tout le monde.",
-      cta: "Espionner les Pubs",
+      cta: "Essayer Maintenant",
       stats: [
         { value: "100K+", label: "Pubs Suivies" },
         { value: "Temps Réel", label: "Mises à Jour" },
@@ -517,7 +517,7 @@ export const translations = {
     },
     ugcCreator: {
       title: "Créer tes vidéos de présentation produits avec des acteurs IA !",
-      subtitle: "Transforme tes produits en contenu vidéo engageant en 3 étapes simples",
+      subtitle: "Transforme tes produits en contenu vidéo engageant",
       steps: [
         {
           number: "1",
@@ -610,16 +610,16 @@ export const translations = {
   },
   es: {
     hero: {
-      headline: "Construye Tu Imperio E-Commerce ",
-      headlineHighlight: "En Pocos Minutos",
-      subheadline: "Plataforma con IA que crea, optimiza y escala tu tienda Shopify automáticamente - desde la selección de productos ganadores hasta campañas de marketing virales",
-      ctaPrimary: "Generar Mi Tienda",
+      headline: "Conviértete En El Próximo Gran Nombre ",
+      headlineHighlight: "Del Mañana",
+      subheadline: "",
+      ctaPrimary: "Comenzar gratis",
       ctaSecondary: "Ver Demo (2min)",
       trustBar: {
         products: "2M+ Productos",
-        suppliers: "7K+ Proveedores",
+        suppliers: "100K+ Proveedores",
         adSpy: "Espía de Anuncios en Vivo",
-        creative: "Estudio Creativo IA"
+        creative: "Actores IA"
       },
       poweredBy: "Impulsado por Shopify",
       shopifyPartner: "Socio Oficial de Shopify",
@@ -659,14 +659,14 @@ export const translations = {
           description: "Monitorea campañas activas en Facebook, Instagram & TikTok en tiempo real. Ve qué funciona ahora."
         },
         {
-          title: "Estudio Creativo IA",
-          description: "Genera videos de hasta 120 segundos con actores IA. Crea visuales de productos impresionantes en segundos."
+          title: "Actores IA",
+          description: "Genera videos y visuales profesionales con IA en segundos"
         }
       ]
     },
     visualDemo: {
       title: "Vivendly En Acción",
-      subtitle: "Crea tu tienda, importa tu producto y obtén tus creativos de video IA",
+      subtitle: "Crea tu tienda, importa tu producto ganador y obtén tus creativos de video IA",
       items: [
         {
           label: "Crea tu tienda instantáneamente",
@@ -679,7 +679,7 @@ export const translations = {
           image: "/images/winner_product.png"
         },
         {
-          label: "Creativos Impulsados por IA",
+          label: "Creativos Actores IA",
           description: "Genera videos y visuales profesionales con IA en segundos",
           video: "/video/iavideo.mp4"
         }
@@ -762,7 +762,7 @@ export const translations = {
     },
     ugcCreator: {
       title: "¡Crea tus videos de presentación de productos con actores IA!",
-      subtitle: "Transforma tus productos en contenido de video atractivo en 3 simples pasos",
+      subtitle: "Transforma tus productos en contenido de video atractivo",
       steps: [
         {
           number: "1",

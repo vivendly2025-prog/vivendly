@@ -23,10 +23,10 @@ function HomePage() {
       <Hero />
       <VisualDemo />
       <PartnersLogos />
-      <Features />
+      <UGCCreator />
       <SocialProof />
       <AdSpy />
-      <UGCCreator />
+      <Features />
       <WinnerProducts />
       <FAQ />
       <Reviews />

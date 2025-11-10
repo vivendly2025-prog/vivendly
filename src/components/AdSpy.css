@@ -213,6 +213,65 @@
   margin-right: auto;
 }
 
+.adspy-image-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(98, 113, 217, 0.15);
+}
+
+.adspy-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(98, 113, 217, 0.25) 0%, rgba(159, 169, 231, 0.15) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.adspy-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.9) saturate(1.2);
+}
+
+.adspy-image-desktop {
+  display: block;
+}
+
+.adspy-image-mobile {
+  display: none;
+}
+
+.adspy-cta-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 56px;
+  background: #6271d9;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 16px 48px rgba(98, 113, 217, 0.7), 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.adspy-cta-button:hover {
+  background: #5260c8;
+  transform: translate(-50%, -50%) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(98, 113, 217, 0.8), 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
 .adspy-cards-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -466,6 +525,18 @@
   .title-icon {
     width: 32px;
     height: 32px;
+  }
+
+  .adspy-image-desktop {
+    display: none;
+  }
+
+  .adspy-image-mobile {
+    display: block;
+  }
+
+  .adspy-cta-button {
+    display: none;  /* Masqué sur mobile */
   }
 
   .ad-spy-subtitle {
