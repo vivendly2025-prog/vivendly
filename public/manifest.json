@@ -1,0 +1,27 @@
+{
+  "name": "Vivendly - AI-Powered E-Commerce Automation",
+  "short_name": "Vivendly",
+  "description": "Build, scale, and automate your Shopify store with AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6271d9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "shopping"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

@@ -1,0 +1,11 @@
+# robots.txt for Vivendly
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://www.vivendly.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0

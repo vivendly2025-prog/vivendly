@@ -1,0 +1,151 @@
+.legal-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
+  padding: 120px 0 80px;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.back-to-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6271d9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.back-to-home:hover {
+  color: #5260c8;
+  transform: translateX(-4px);
+}
+
+.legal-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.legal-updated {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+
+.legal-section {
+  margin-bottom: 32px;
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.legal-section:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.legal-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: none;
+  position: relative;
+  padding-left: 20px;
+}
+
+.legal-section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #6271d9 0%, #838fe1 100%);
+  border-radius: 2px;
+}
+
+.legal-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 16px;
+}
+
+.legal-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.legal-section ul li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.legal-section ul li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: #6271d9;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.legal-section ul li strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.legal-email {
+  margin-top: 16px;
+}
+
+.legal-email a {
+  color: #6271d9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.legal-email a:hover {
+  color: #5260c8;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .legal-page {
+    padding: 100px 0 60px;
+  }
+
+  .legal-title {
+    font-size: 32px;
+  }
+
+  .legal-section h2 {
+    font-size: 24px;
+  }
+
+  .legal-section p,
+  .legal-section ul li {
+    font-size: 15px;
+  }
+}

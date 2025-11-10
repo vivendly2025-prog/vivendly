@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivendly - AI-Powered E-Commerce Automation Platform</title>
+  <meta name="description" content="Build, scale, and automate your Shopify store with AI. Access 10M+ products, real-time ad spy, and AI creative tools.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vivendly - AI E-Commerce Automation">
+  <meta property="og:description" content="Build your e-commerce empire in minutes with AI">
+  <meta property="og:url" content="https://www.vivendly.com">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vivendly - AI E-Commerce Automation">
+  <meta name="twitter:description" content="Build your e-commerce empire in minutes">
+  
+  <style>
+    /* === RESET & BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* === TYPOGRAPHY === */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    /* === LAYOUT === */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    /* === LANGUAGE SWITCHER === */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      background: white;
+      padding: 6px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .lang-btn {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      color: #4a4a4a;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-btn.active {
+      background: #6271d9;
+      color: white;
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: #f3f4f6;
+    }
+    
+    /* Hide inactive languages */
+    [data-lang] {
+      display: none;
+    }
+    
+    /* === HERO SECTION === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    
+    /* Animated background shapes */
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: #6271d9;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    .hero::before {
+      width: 500px;
+      height: 500px;
+      top: -200px;
+      right: -100px;
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      bottom: -100px;
+      left: -50px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 0;
+    }
+    
+    .hero h1 {
+      font-size: 56px;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-subtitle {
+      font-size: 22px;
+      color: #4a4a4a;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+    
+    /* CTA Buttons */
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #6271d9;
+      color: white;
+      box-shadow: 0 4px 12px rgba(98, 113, 217, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: #5260c8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(98, 113, 217, 0.35);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #6271d9;
+      border: 2px solid #6271d9;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(98, 113, 217, 0.1);
+    }
+    
+    /* Trust Bar */
+    .trust-bar {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    
+    .trust-item {
+      font-size: 14px;
+      color: #4a4a4a;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .trust-item::before {
+      content: '✓';
+      color: #6271d9;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    /* Hero Mockup */
+    .hero-mockup {
+      max-width: 800px;
+      height: 500px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #6271d9 0%, #9fa9e7 100%);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(98, 113, 217, 0.25);
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-mockup::before {
+      content: 'VIVENDLY DASHBOARD';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    
+    .powered-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #4a4a4a;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* === FEATURES SECTION === */
+    .features {
+      background: #F9FAFB;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      text-align: center;
+      color: #4a4a4a;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    .feature-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .feature-card.animate-in {
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(98, 113, 217, 0.15);
+      border-color: #6271d9;
+    }
+    
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    
+    .feature-description {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    
+    /* === VISUAL DEMO SECTION === */
+    .demo {
+      background: white;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+    
+    .demo-item {
+      text-align: center;
+    }
+    
+    .demo-mockup {
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .demo-mockup:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 32px rgba(98, 113, 217, 0.2);
+    }
+    
+    .demo-mockup-1 {
+      background: linear-gradient(135deg, #6271d9 0%, #838fe1 100%);
+    }
+    
+    .demo-mockup-2 {
+      background: linear-gradient(135deg, #707ddd 0%, #929ce4 100%);
+    }
+    
+    .demo-mockup-3 {
+      background: linear-gradient(135deg, #838fe1 0%, #9fa9e7 100%);
+    }
+    
+    .demo-mockup::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+    }
+    
+    .demo-label {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    
+    .demo-description {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    
+    /* === SOCIAL PROOF SECTION === */
+    .social-proof {
+      background: #F9FAFB;
+    }
+    
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin: 60px 0;
+    }
+    
+    .metric-card {
+      text-align: center;
+      padding: 24px;
+    }
+    
+    .metric-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #6271d9;
+      margin-bottom: 8px;
+    }
+    
+    .metric-label {
+      font-size: 16px;
+      color: #4a4a4a;
+      font-weight: 600;
+    }
+    
+    .testimonial-carousel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .testimonial-card.animate-in {
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .avatar-1 { background: #6271d9; }
+    .avatar-2 { background: #838fe1; }
+    .avatar-3 { background: #929ce4; }
+    
+    .testimonial-info h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .testimonial-info p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .testimonial-quote {
+      font-size: 15px;
+      color: #4a4a4a;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-rating {
+      color: #fac0cf;
+      font-size: 18px;
+    }
+    
+    /* === FAQ SECTION === */
+    .faq {
+      background: white;
+    }
+    
+    .faq-list {
+      max-width: 800px;
+      margin: 60px auto 0;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 24px 0;
+    }
+    
+    .faq-question {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    
+    .faq-answer {
+      font-size: 16px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    
+    /* === FINAL CTA SECTION === */
+    .final-cta {
+      background: linear-gradient(135deg, rgba(98, 113, 217, 0.03) 0%, rgba(159, 169, 231, 0.05) 100%);
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .final-cta h2 {
+      font-size: 48px;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+    
+    .final-cta-subtitle {
+      font-size: 20px;
+      color: #4a4a4a;
+      margin-bottom: 40px;
+    }
+    
+    .final-cta .btn-primary {
+      font-size: 20px;
+      padding: 20px 50px;
+      margin-bottom: 16px;
+    }
+    
+    .microcopy {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+    
+    .urgency {
+      font-size: 13px;
+      color: #6b7280;
+      font-style: italic;
+    }
+    
+    /* === FOOTER === */
+    footer {
+      background: #1a1a1a;
+      color: #9ca3af;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-brand h3 {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .footer-tagline {
+      font-size: 14px;
+      color: #9ca3af;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #6271d9;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      background: #2d2d2d;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: #6271d9;
+      transform: translateY(-2px);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #2d2d2d;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* === ANIMATIONS === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* === RESPONSIVE === */
+    @media (max-width: 1199px) {
+      .hero h1 { font-size: 42px; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .demo-grid { grid-template-columns: repeat(2, 1fr); }
+      .metrics-row { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-carousel { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 767px) {
+      .hero h1 { 
+        font-size: 32px; 
+        line-height: 1.2; 
+      }
+      
+      .hero-subtitle { 
+        font-size: 18px; 
+      }
+      
+      .hero-mockup {
+        height: 300px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .feature-grid,
+      .demo-grid,
+      .metrics-row,
+      .testimonial-carousel,
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .testimonial-carousel {
+        overflow-x: auto;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 16px;
+      }
+      
+      .testimonial-card {
+        min-width: 280px;
+        scroll-snap-align: start;
+      }
+      
+      .lang-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 4px;
+      }
+      
+      .lang-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .final-cta {
+        padding: 60px 0;
+      }
+      
+      .final-cta h2 {
+        font-size: 32px;
+      }
+    }
+    
+    /* === ACCESSIBILITY === */
+    .btn:focus,
+    .lang-btn:focus {
+      outline: 2px solid #6271d9;
+      outline-offset: 2px;
+    }
+    
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #6271d9;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang-btn="en" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" data-lang-btn="fr" onclick="setLanguage('fr')">FR</button>
+    <button class="lang-btn" data-lang-btn="es" onclick="setLanguage('es')">ES</button>
+  </div>
+  
+  <!-- HERO SECTION -->
+  <section class="hero" id="main-content">
+    <div class="container">
+      <div class="hero-content">
+        <h1>
+          <span data-lang="en">Build Your E-Commerce Empire in Minutes, Not Months</span>
+          <span data-lang="fr">Créez Votre Empire E-Commerce en Minutes, Pas en Mois</span>
+          <span data-lang="es">Construye Tu Imperio E-Commerce en Minutos, No Meses</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          <span data-lang="en">AI-powered platform that creates, optimizes, and scales your Shopify store automatically - from winning product selection to viral marketing campaigns</span>
+          <span data-lang="fr">Plateforme IA qui crée, optimise et fait grandir votre boutique Shopify automatiquement - de la sélection produits gagnants aux campagnes marketing virales</span>
+          <span data-lang="es">Plataforma con IA que crea, optimiza y escala tu tienda Shopify automáticamente - desde la selección de productos ganadores hasta campañas de marketing virales</span>
+        </p>
+        
+        <div class="cta-group">
+          <button class="btn btn-primary" aria-label="Start your free 14-day trial">
+            <span data-lang="en">Start Free Trial</span>
+            <span data-lang="fr">Démarrer l'Essai Gratuit</span>
+            <span data-lang="es">Iniciar Prueba Gratuita</span>
+          </button>
+          <button class="btn btn-secondary">
+            <span data-lang="en">Watch Demo (2min)</span>
+            <span data-lang="fr">Voir la Démo (2min)</span>
+            <span data-lang="es">Ver Demo (2min)</span>
+          </button>
+        </div>
+        
+        <div class="trust-bar">
+          <div class="trust-item">
+            <span data-lang="en">10M+ Products</span>
+            <span data-lang="fr">10M+ Produits</span>
+            <span data-lang="es">10M+ Productos</span>
+          </div>
+          <div class="trust-item">
+            <span data-lang="en">7K+ Suppliers</span>
+            <span data-lang="fr">7K+ Fournisseurs</span>
+            <span data-lang="es">7K+ Proveedores</span>
+          </div>
+          <div class="trust-item">
+            <span data-lang="en">Real-time Ad Spy</span>
+            <span data-lang="fr">Espion Pubs Temps Réel</span>
+            <span data-lang="es">Espía de Anuncios en Vivo</span>
+          </div>
+          <div class="trust-item">
+            <span data-lang="en">AI Creative Studio</span>
+            <span data-lang="fr">Studio Créatif IA</span>
+            <span data-lang="es">Estudio Creativo IA</span>
+          </div>
+        </div>
+        
+        <div class="hero-mockup">
+          <div class="powered-badge">
+            <span data-lang="en">Powered by Shopify</span>
+            <span data-lang="fr">Propulsé par Shopify</span>
+            <span data-lang="es">Impulsado por Shopify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES SECTION -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">
+        <span data-lang="en">Everything You Need to Dominate E-Commerce</span>
+        <span data-lang="fr">Tout Ce Dont Vous Avez Besoin pour Dominer l'E-Commerce</span>
+        <span data-lang="es">Todo Lo Que Necesitas para Dominar el E-Commerce</span>
+      </h2>
+      <p class="section-subtitle">
+        <span data-lang="en">8 powerful tools in one platform to build, scale, and automate your online business</span>
+        <span data-lang="fr">8 outils puissants en une plateforme pour construire, scaler et automatiser votre business</span>
+        <span data-lang="es">8 herramientas poderosas en una plataforma para construir, escalar y automatizar tu negocio</span>
+      </p>
+      
+      <div class="feature-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <span class="feature-icon">🏪</span>
+          <h3 class="feature-title">
+            <span data-lang="en">Instant Store Creation</span>
+            <span data-lang="fr">Création Instantanée</span>
+            <span data-lang="es">Creación Instantánea</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Generate Shopify-powered stores with AI in under 5 minutes. No coding, design, or technical setup required. Just connect your Shopify account and launch.</span>
+            <span data-lang="fr">Générez des boutiques Shopify avec l'IA en moins de 5 minutes. Sans code, design ou configuration technique.</span>
+            <span data-lang="es">Genera tiendas Shopify con IA en menos de 5 minutos. Sin código, diseño o configuración técnica.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <span class="feature-icon">📦</span>
+          <h3 class="feature-title">
+            <span data-lang="en">10M+ Product Catalog</span>
+            <span data-lang="fr">Catalogue 10M+ Produits</span>
+            <span data-lang="es">Catálogo 10M+ Productos</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Access trending products from 7,000+ verified suppliers worldwide. Filter by category, profit margin, shipping time, and real-time demand metrics.</span>
+            <span data-lang="fr">Accédez aux produits tendance de 7000+ fournisseurs vérifiés. Filtres par catégorie, marge, délai livraison.</span>
+            <span data-lang="es">Accede a productos de tendencia de 7000+ proveedores verificados. Filtra por categoría, margen, tiempo de envío.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <span class="feature-icon">🏆</span>
+          <h3 class="feature-title">
+            <span data-lang="en">Winner Product Algorithm</span>
+            <span data-lang="fr">Algorithme Produits Gagnants</span>
+            <span data-lang="es">Algoritmo Productos Ganadores</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">AI-powered algorithm analyzes millions of data points to identify high-converting products before your competitors discover them. Updated in real-time.</span>
+            <span data-lang="fr">Algorithme IA identifie les produits haute-conversion avant vos concurrents. Mise à jour temps réel.</span>
+            <span data-lang="es">Algoritmo IA identifica productos de alta conversión antes que tus competidores. Actualización en tiempo real.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <span class="feature-icon">✨</span>
+          <h3 class="feature-title">
+            <span data-lang="en">AI Creative Studio</span>
+            <span data-lang="fr">Studio Créatif IA</span>
+            <span data-lang="es">Estudio Creativo IA</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Generate up to 120-second product videos with AI actors speaking about your products. Create stunning product visuals from simple prompts in seconds.</span>
+            <span data-lang="fr">Générez des vidéos jusqu'à 120 secondes avec acteurs IA. Créez des visuels produits époustouflants en secondes.</span>
+            <span data-lang="es">Genera videos de hasta 120 segundos con actores IA. Crea visuales de productos impresionantes en segundos.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <span class="feature-icon">👁️</span>
+          <h3 class="feature-title">
+            <span data-lang="en">Real-Time Ad Spy</span>
+            <span data-lang="fr">Espion Pubs Temps Réel</span>
+            <span data-lang="es">Espía de Anuncios en Vivo</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Monitor active advertising campaigns on Facebook, Instagram & TikTok in real-time. See what's working for competitors right now and adapt instantly.</span>
+            <span data-lang="fr">Surveillez les campagnes actives sur Facebook, Instagram & TikTok en temps réel. Voyez ce qui marche.</span>
+            <span data-lang="es">Monitorea campañas activas en Facebook, Instagram & TikTok en tiempo real. Ve qué funciona ahora.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <span class="feature-icon">🕐</span>
+          <h3 class="feature-title">
+            <span data-lang="en">6-Month Ad History</span>
+            <span data-lang="fr">Historique Pubs 6 Mois</span>
+            <span data-lang="es">Historial de Anuncios 6 Meses</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Access complete advertising history from the last 6 months across Facebook, Instagram & TikTok. Analyze what worked, when, and why to replicate success.</span>
+            <span data-lang="fr">Accédez à l'historique complet des 6 derniers mois sur Facebook, Instagram & TikTok.</span>
+            <span data-lang="es">Accede al historial completo de los últimos 6 meses en Facebook, Instagram & TikTok.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 7 -->
+        <div class="feature-card">
+          <span class="feature-icon">🚀</span>
+          <h3 class="feature-title">
+            <span data-lang="en">Launch Campaigns Instantly</span>
+            <span data-lang="fr">Lancez Campagnes Instantanément</span>
+            <span data-lang="es">Lanza Campañas Instantáneamente</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Create and deploy advertising campaigns to Facebook, Instagram & TikTok directly from Vivendly. Manage all your marketing from one dashboard.</span>
+            <span data-lang="fr">Créez et déployez des campagnes sur Facebook, Instagram & TikTok directement depuis Vivendly.</span>
+            <span data-lang="es">Crea y despliega campañas en Facebook, Instagram & TikTok directamente desde Vivendly.</span>
+          </p>
+        </div>
+        
+        <!-- Feature 8 -->
+        <div class="feature-card">
+          <span class="feature-icon">🤝</span>
+          <h3 class="feature-title">
+            <span data-lang="en">7K+ Verified Suppliers</span>
+            <span data-lang="fr">7K+ Fournisseurs Vérifiés</span>
+            <span data-lang="es">7K+ Proveedores Verificados</span>
+          </h3>
+          <p class="feature-description">
+            <span data-lang="en">Connect with 7,000+ vetted suppliers. View detailed ratings, customer reviews, delivery times, and production capabilities before partnering.</span>
+            <span data-lang="fr">Connectez-vous à 7000+ fournisseurs vérifiés. Notes, avis clients, délais livraison détaillés.</span>
+            <span data-lang="es">Conéctate con 7000+ proveedores verificados. Calificaciones, reseñas, tiempos de entrega detallados.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- VISUAL DEMONSTRATION SECTION -->
+  <section class="demo">
+    <div class="container">
+      <h2 class="section-title">
+        <span data-lang="en">See Vivendly in Action</span>
+        <span data-lang="fr">Voyez Vivendly en Action</span>
+        <span data-lang="es">Ve Vivendly en Acción</span>
+      </h2>
+      <p class="section-subtitle">
+        <span data-lang="en">Real dashboard. Real results. Real simple.</span>
+        <span data-lang="fr">Tableau de bord réel. Résultats réels. Vraiment simple.</span>
+        <span data-lang="es">Panel real. Resultados reales. Realmente simple.</span>
+      </p>
+      
+      <div class="demo-grid">
+        <div class="demo-item">
+          <div class="demo-mockup demo-mockup-1"></div>
+          <h3 class="demo-label">
+            <span data-lang="en">Manage All Your Stores</span>
+            <span data-lang="fr">Gérez Toutes Vos Boutiques</span>
+            <span data-lang="es">Gestiona Todas Tus Tiendas</span>
+          </h3>
+          <p class="demo-description">
+            <span data-lang="en">Centralized dashboard to monitor sales, inventory, and campaigns across all your stores</span>
+            <span data-lang="fr">Tableau de bord centralisé pour surveiller ventes, inventaire et campagnes</span>
+            <span data-lang="es">Panel centralizado para monitorear ventas, inventario y campañas</span>
+          </p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="demo-mockup demo-mockup-2"></div>
+          <h3 class="demo-label">
+            <span data-lang="en">Smart Product Discovery</span>
+            <span data-lang="fr">Découverte Produits Intelligente</span>
+            <span data-lang="es">Descubrimiento Inteligente de Productos</span>
+          </h3>
+          <p class="demo-description">
+            <span data-lang="en">Browse 10M+ products with AI-powered filters, profit calculators, and trend analysis</span>
+            <span data-lang="fr">Parcourez 10M+ produits avec filtres IA, calculateurs de profit et analyse tendances</span>
+            <span data-lang="es">Explora 10M+ productos con filtros IA, calculadoras de beneficio y análisis de tendencias</span>
+          </p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="demo-mockup demo-mockup-3"></div>
+          <h3 class="demo-label">
+            <span data-lang="en">AI-Powered Creatives</span>
+            <span data-lang="fr">Créatifs Propulsés par IA</span>
+            <span data-lang="es">Creativos Impulsados por IA</span>
+          </h3>
+          <p class="demo-description">
+            <span data-lang="en">Generate professional product videos and visuals with AI in seconds</span>
+            <span data-lang="fr">Générez des vidéos et visuels professionnels avec l'IA en secondes</span>
+            <span data-lang="es">Genera videos y visuales profesionales con IA en segundos</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- SOCIAL PROOF SECTION -->
+  <section class="social-proof">
+    <div class="container">
+      <h2 class="section-title">
+        <span data-lang="en">Trusted by 5,000+ E-Commerce Entrepreneurs Worldwide</span>
+        <span data-lang="fr">Approuvé par 5000+ Entrepreneurs E-Commerce dans le Monde</span>
+        <span data-lang="es">Confiado por 5000+ Emprendedores E-Commerce en el Mundo</span>
+      </h2>
+      
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-number">5,000+</div>
+          <div class="metric-label">
+            <span data-lang="en">Active Users</span>
+            <span data-lang="fr">Utilisateurs Actifs</span>
+            <span data-lang="es">Usuarios Activos</span>
+          </div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-number">$10M+</div>
+          <div class="metric-label">
+            <span data-lang="en">Revenue Generated</span>
+            <span data-lang="fr">Revenus Générés</span>
+            <span data-lang="es">Ingresos Generados</span>
+          </div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-number">10M+</div>
+          <div class="metric-label">
+            <span data-lang="en">Product Catalog</span>
+            <span data-lang="fr">Catalogue Produits</span>
+            <span data-lang="es">Catálogo de Productos</span>
+          </div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-number">99.8%</div>
+          <div class="metric-label">
+            <span data-lang="en">Platform Uptime</span>
+            <span data-lang="fr">Disponibilité</span>
+            <span data-lang="es">Tiempo Activo</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-carousel">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar avatar-1"></div>
+            <div class="testimonial-info">
+              <h4>Sarah Mitchell</h4>
+              <p>
+                <span data-lang="en">E-commerce Founder</span>
+                <span data-lang="fr">Fondatrice E-commerce</span>
+                <span data-lang="es">Fundadora E-commerce</span>
+              </p>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            <span data-lang="en">"I went from idea to first sale in 48 hours with Vivendly. The AI creative hub alone saved me $5,000 in video production costs."</span>
+            <span data-lang="fr">"Je suis passée d'idée à première vente en 48h avec Vivendly. Le studio IA m'a économisé 5000$ en production vidéo."</span>
+            <span data-lang="es">"Pasé de la idea a la primera venta en 48 horas con Vivendly. El estudio IA me ahorró $5,000 en producción de video."</span>
+          </p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar avatar-2"></div>
+            <div class="testimonial-info">
+              <h4>Marcus Chen</h4>
+              <p>
+                <span data-lang="en">Dropshipping Expert</span>
+                <span data-lang="fr">Expert Dropshipping</span>
+                <span data-lang="es">Experto en Dropshipping</span>
+              </p>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            <span data-lang="en">"The ad spy feature is insane. I can see exactly what my competitors are running in real-time and adapt my strategy instantly."</span>
+            <span data-lang="fr">"La fonction espion pub est dingue. Je vois exactement ce que font mes concurrents en temps réel."</span>
+            <span data-lang="es">"La función de espía de anuncios es increíble. Veo exactamente lo que hacen mis competidores en tiempo real."</span>
+          </p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar avatar-3"></div>
+            <div class="testimonial-info">
+              <h4>Elena Rodriguez</h4>
+              <p>
+                <span data-lang="en">Multi-Store Owner</span>
+                <span data-lang="fr">Propriétaire Multi-Boutiques</span>
+                <span data-lang="es">Propietaria Multi-Tiendas</span>
+              </p>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            <span data-lang="en">"Managing 7 stores used to take me 60 hours a week. Now it takes 10. Vivendly's automation is a game-changer."</span>
+            <span data-lang="fr">"Gérer 7 boutiques me prenait 60h/semaine. Maintenant 10h. L'automatisation Vivendly change tout."</span>
+            <span data-lang="es">"Gestionar 7 tiendas me tomaba 60h por semana. Ahora 10h. La automatización de Vivendly cambia todo."</span>
+          </p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ SECTION -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">
+        <span data-lang="en">Frequently Asked Questions</span>
+        <span data-lang="fr">Questions Fréquemment Posées</span>
+        <span data-lang="es">Preguntas Frecuentes</span>
+      </h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span data-lang="en">Do I need technical skills to use Vivendly?</span>
+            <span data-lang="fr">Ai-je besoin de compétences techniques pour utiliser Vivendly?</span>
+            <span data-lang="es">¿Necesito habilidades técnicas para usar Vivendly?</span>
+          </h3>
+          <p class="faq-answer">
+            <span data-lang="en">No. Vivendly is designed for entrepreneurs without coding or design experience. Our AI handles the technical work.</span>
+            <span data-lang="fr">Non. Vivendly est conçu pour entrepreneurs sans expérience code ou design. Notre IA gère le travail technique.</span>
+            <span data-lang="es">No. Vivendly está diseñado para emprendedores sin experiencia en código o diseño. Nuestra IA maneja el trabajo técnico.</span>
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span data-lang="en">How does the 14-day free trial work?</span>
+            <span data-lang="fr">Comment fonctionne l'essai gratuit de 14 jours?</span>
+            <span data-lang="es">¿Cómo funciona la prueba gratuita de 14 días?</span>
+          </h3>
+          <p class="faq-answer">
+            <span data-lang="en">Start free, no credit card required. Test all Pro features for 14 days. Cancel anytime before trial ends.</span>
+            <span data-lang="fr">Commencez gratuitement, aucune carte bancaire requise. Testez toutes les fonctionnalités Pro pendant 14 jours. Annulez à tout moment.</span>
+            <span data-lang="es">Comienza gratis, sin tarjeta de crédito requerida. Prueba todas las funciones Pro durante 14 días. Cancela en cualquier momento.</span>
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span data-lang="en">Can I switch between plans?</span>
+            <span data-lang="fr">Puis-je changer de plan?</span>
+            <span data-lang="es">¿Puedo cambiar entre planes?</span>
+          </h3>
+          <p class="faq-answer">
+            <span data-lang="en">Yes, upgrade or downgrade anytime. Changes take effect immediately.</span>
+            <span data-lang="fr">Oui, passez à un forfait supérieur ou inférieur à tout moment. Les changements prennent effet immédiatement.</span>
+            <span data-lang="es">Sí, mejora o reduce tu plan en cualquier momento. Los cambios tienen efecto inmediato.</span>
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span data-lang="en">Do you integrate with Shopify?</span>
+            <span data-lang="fr">Intégrez-vous avec Shopify?</span>
+            <span data-lang="es">¿Se integran con Shopify?</span>
+          </h3>
+          <p class="faq-answer">
+            <span data-lang="en">Yes, seamless Shopify integration. Connect your account in 2 clicks.</span>
+            <span data-lang="fr">Oui, intégration Shopify transparente. Connectez votre compte en 2 clics.</span>
+            <span data-lang="es">Sí, integración perfecta con Shopify. Conecta tu cuenta en 2 clics.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FINAL CTA SECTION -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>
+        <span data-lang="en">Ready to Build Your E-Commerce Empire?</span>
+        <span data-lang="fr">Prêt à Construire Votre Empire E-Commerce?</span>
+        <span data-lang="es">¿Listo para Construir Tu Imperio E-Commerce?</span>
+      </h2>
+      <p class="final-cta-subtitle">
+        <span data-lang="en">Join 5,000+ entrepreneurs using AI to scale their online business</span>
+        <span data-lang="fr">Rejoignez 5000+ entrepreneurs utilisant l'IA pour scaler leur business</span>
+        <span data-lang="es">Únete a 5000+ emprendedores usando IA para escalar su negocio</span>
+      </p>
+      <button class="btn btn-primary" aria-label="Start your free trial today">
+        <span data-lang="en">Start Your Free Trial</span>
+        <span data-lang="fr">Démarrer Votre Essai Gratuit</span>
+        <span data-lang="es">Iniciar Tu Prueba Gratuita</span>
+      </button>
+      <p class="microcopy">
+        <span data-lang="en">✓ No credit card required • ✓ 14-day free trial • ✓ Cancel anytime</span>
+        <span data-lang="fr">✓ Aucune carte bancaire • ✓ Essai 14 jours • ✓ Annulez à tout moment</span>
+        <span data-lang="es">✓ Sin tarjeta de crédito • ✓ Prueba 14 días • ✓ Cancela en cualquier momento</span>
+      </p>
+      <p class="urgency">
+        <span data-lang="en">🔥 127 users signed up this week</span>
+        <span data-lang="fr">🔥 127 utilisateurs inscrits cette semaine</span>
+        <span data-lang="es">🔥 127 usuarios registrados esta semana</span>
+      </p>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>VIVENDLY</h3>
+          <p class="footer-tagline">
+            <span data-lang="en">AI-Powered E-Commerce Automation</span>
+            <span data-lang="fr">Automatisation E-Commerce par IA</span>
+            <span data-lang="es">Automatización E-Commerce con IA</span>
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <a href="#privacy">
+            <span data-lang="en">Privacy Policy</span>
+            <span data-lang="fr">Politique de Confidentialité</span>
+            <span data-lang="es">Política de Privacidad</span>
+          </a>
+          <a href="#terms">
+            <span data-lang="en">Terms of Service</span>
+            <span data-lang="fr">Conditions d'Utilisation</span>
+            <span data-lang="es">Términos de Servicio</span>
+          </a>
+          <a href="#support">
+            <span data-lang="en">Contact Support</span>
+            <span data-lang="fr">Contacter le Support</span>
+            <span data-lang="es">Contactar Soporte</span>
+          </a>
+        </div>
+        
+        <div>
+          <div class="footer-social">
+            <div class="social-icon">𝕏</div>
+            <div class="social-icon">in</div>
+            <div class="social-icon">f</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>
+          <span data-lang="en">© 2025 Vivendly. All rights reserved. • Powered by Shopify</span>
+          <span data-lang="fr">© 2025 Vivendly. Tous droits réservés. • Propulsé par Shopify</span>
+          <span data-lang="es">© 2025 Vivendly. Todos los derechos reservados. • Impulsado por Shopify</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Language Switcher
+    let currentLang = localStorage.getItem('language') || 'en';
+    
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+      
+      // Hide all language elements
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = 'none';
+      });
+      
+      // Show current language elements
+      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+        el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+      });
+      
+      // Update language switcher active state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`[data-lang-btn="${lang}"]`).classList.add('active');
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+      
+      // Scroll-triggered animations using Intersection Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all animatable elements
+      document.querySelectorAll('.feature-card, .testimonial-card').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

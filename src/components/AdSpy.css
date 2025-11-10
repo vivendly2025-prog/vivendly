@@ -1,0 +1,525 @@
+.ad-spy {
+  position: relative;
+  padding: 80px 0 120px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 50%, #fafbff 100%);
+  overflow: hidden;
+}
+
+.ad-spy-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Radar circles animés */
+.radar-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(98, 113, 217, 0.3);
+  border-radius: 50%;
+  animation: radarPulse 4s ease-out infinite;
+}
+
+.radar-1 {
+  width: 300px;
+  height: 300px;
+  animation-delay: 0s;
+}
+
+.radar-2 {
+  width: 500px;
+  height: 500px;
+  animation-delay: 1.3s;
+}
+
+.radar-3 {
+  width: 700px;
+  height: 700px;
+  animation-delay: 2.6s;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Pulse central */
+.radar-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #6271d9;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(98, 113, 217, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+/* Data streams */
+.data-stream {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(180deg, transparent 0%, #6271d9 50%, transparent 100%);
+  opacity: 0.4;
+  animation: streamFlow 3s linear infinite;
+}
+
+.stream-1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.stream-2 {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.stream-3 {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+@keyframes streamFlow {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.ad-spy-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ad-spy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(98, 113, 217, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #6271d9;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(98, 113, 217, 0.4);
+  position: relative;
+  animation: badgeGlow 2s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(98, 113, 217, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(98, 113, 217, 0.6);
+  }
+}
+
+.badge-pulse {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #6271d9;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.ad-spy-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.title-icon {
+  color: #6271d9;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.ad-spy-subtitle {
+  font-size: 18px;
+  color: #4a4a4a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.ad-spy-description {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adspy-cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.adspy-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.adspy-card:hover {
+  transform: scale(1.12) translateY(-8px);
+  box-shadow: 0 12px 32px rgba(98, 113, 217, 0.25);
+  z-index: 10;
+}
+
+.adspy-card-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.adspy-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.adspy-sound-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.adspy-sound-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.adspy-sound-button:active {
+  transform: scale(0.95);
+}
+
+.adspy-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.adspy-card:hover .adspy-video-overlay {
+  opacity: 0;
+}
+
+.adspy-play-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+.adspy-card-footer {
+  padding: 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adspy-status {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  background: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.adspy-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adspy-category {
+  font-size: 9px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adspy-metrics {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.adspy-metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-label {
+  font-size: 8px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.metric-value.ctr {
+  color: #6271d9;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+.placeholder-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.placeholder-icon {
+  color: rgba(98, 113, 217, 0.3);
+  margin-bottom: 12px;
+}
+
+.placeholder-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.placeholder-content p {
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .ad-spy {
+    padding: 50px 0;
+  }
+
+  .ad-spy-title {
+    font-size: 32px;
+  }
+
+  .ad-spy-subtitle {
+    font-size: 17px;
+  }
+
+  .adspy-cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ad-spy {
+    padding: 40px 0;
+  }
+
+  .ad-spy-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .title-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ad-spy-subtitle {
+    font-size: 16px;
+  }
+
+  .adspy-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .adspy-card:hover {
+    transform: scale(1.08) translateY(-4px);
+  }
+
+  .adspy-name {
+    font-size: 12px;
+  }
+
+  .adspy-category {
+    font-size: 10px;
+  }
+
+  .metric-label {
+    font-size: 9px;
+  }
+
+  .metric-value {
+    font-size: 11px;
+  }
+
+  .adspy-status {
+    font-size: 10px;
+  }
+
+  .ad-spy-description {
+    font-size: 14px;
+  }
+
+  .visual-placeholder {
+    height: 200px;
+  }
+
+  .placeholder-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .radar-circle {
+    display: none;
+  }
+
+  .data-stream {
+    display: none;
+  }
+}

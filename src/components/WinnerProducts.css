@@ -1,0 +1,217 @@
+.winner-products {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.products-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.products-row {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.products-row-1 {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.products-row-2 {
+  animation: scrollRight 50s linear infinite;
+}
+
+.products-row-3 {
+  animation: scrollLeft 70s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.product-item {
+  font-size: 64px;
+  flex-shrink: 0;
+  filter: grayscale(50%);
+  opacity: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.winner-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, #6271d9 0%, #838fe1 100%);
+  border-radius: 32px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 60px rgba(98, 113, 217, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.winner-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.winner-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.winner-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.winner-content .btn {
+  position: relative;
+  z-index: 1;
+  background: white;
+  color: #6271d9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.winner-content .btn:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .winner-products {
+    padding: 80px 0;
+  }
+
+  .winner-content {
+    padding: 50px 40px;
+    border-radius: 24px;
+  }
+
+  .winner-title {
+    font-size: 36px;
+  }
+
+  .winner-description {
+    font-size: 16px;
+  }
+
+  .product-item {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .winner-products {
+    padding: 60px 0;
+  }
+
+  .winner-content {
+    padding: 40px 24px;
+    border-radius: 20px;
+  }
+
+  .winner-badge {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .winner-badge svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .winner-title {
+    font-size: 28px;
+  }
+
+  .winner-description {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .product-item {
+    font-size: 48px;
+  }
+
+  .products-row {
+    gap: 40px;
+  }
+
+  .btn-large {
+    width: 100%;
+  }
+}

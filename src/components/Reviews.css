@@ -1,0 +1,257 @@
+.reviews {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #F9FAFB 50%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.reviews-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.reviews-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(98, 113, 217, 0.1) 0%, transparent 70%);
+  animation: float 15s ease-in-out infinite;
+}
+
+.reviews-shape-1 {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.reviews-shape-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -80px;
+  animation-delay: 7s;
+}
+
+.reviews-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviews-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.reviews-subtitle {
+  font-size: 18px;
+  color: #4a4a4a;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reviews-scroll-container {
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+
+.reviews-scroll-container:active {
+  cursor: grabbing;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 24px;
+  padding: 20px 0;
+  width: fit-content;
+}
+
+.review-card {
+  flex-shrink: 0;
+  width: 380px;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: 1px solid rgba(98, 113, 217, 0.1);
+}
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(98, 113, 217, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.review-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(98, 113, 217, 0.15);
+  border-color: rgba(98, 113, 217, 0.3);
+}
+
+.review-card:hover::before {
+  opacity: 1;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.review-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-author {
+  flex: 1;
+  min-width: 0;
+}
+
+.author-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge {
+  color: #6271d9;
+  flex-shrink: 0;
+}
+
+.author-title {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.review-rating {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+
+.review-quote {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+  font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .reviews {
+    padding: 60px 0;
+  }
+
+  .reviews-title {
+    font-size: 36px;
+  }
+
+  .reviews-subtitle {
+    font-size: 16px;
+  }
+
+  .reviews-header {
+    margin-bottom: 50px;
+  }
+
+  .review-card {
+    width: 340px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .reviews {
+    padding: 50px 0;
+  }
+
+  .reviews-title {
+    font-size: 28px;
+  }
+
+  .reviews-subtitle {
+    font-size: 15px;
+  }
+
+  .reviews-header {
+    margin-bottom: 40px;
+  }
+
+  .reviews-track {
+    gap: 16px;
+  }
+
+  .review-card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .review-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .author-name {
+    font-size: 15px;
+  }
+
+  .author-title {
+    font-size: 12px;
+  }
+
+  .review-rating svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .review-quote {
+    font-size: 14px;
+  }
+
+  .reviews-shape {
+    display: none;
+  }
+}
